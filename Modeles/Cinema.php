@@ -2,22 +2,26 @@
 
     class Cinema {
         
-        private $pdo;
-        private $table = "cinemas";
+        private static $pdo;
+        private static $table = "cinemas";
+
+        public static function setPdo($pdo) {
+            self::$pdo = $pdo;
+        }
 
         public function __construct($pdo) {
-            $this->pdo = $pdo;
+            self::$pdo = $pdo;
         }
 
         public function create($nom, $adresse, $ville, $pays) {
-            $sql = "INSERT INTO {$this->table} (nom, adresse, ville, pays) VALUES (:nom, :adresse, :ville, :pays)";
-            $stmt = $this->pdo->prepare($sql);
+            $sql = "INSERT INTO " . self::$table . " (nom, adresse, ville, pays) VALUES (:nom, :adresse, :ville, :pays)";
+            $stmt = self::$pdo->prepare($sql);
             return $stmt->execute(compact('nom', 'adresse', 'ville', 'pays'));
         }
 
-        public function getAll() {
-            $sql = "SELECT * FROM {$this->table}";
-            return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+        public static function getAll() {
+            $sql = "SELECT * FROM " . self::$table;
+            return self::$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 

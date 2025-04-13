@@ -1,0 +1,101 @@
+<?php
+require_once '../../connexion.php';
+require_once '../../Modeles/Seance.php';
+require_once '../../Modeles/Film.php';
+require_once '../../Modeles/Salle.php';
+
+// Initialisation de la connexion PDO pour les classes
+Film::setPdo($pdo);
+Salle::setPdo($pdo);
+
+$message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $heure_debut = $_POST['heure_debut'];
+    $heure_fin = $_POST['heure_fin'];
+    $qualite = $_POST['qualite'];
+    $film_id = $_POST['film_id'];
+    $salle_id = $_POST['salle_id'];
+
+    $seance = new Seance($pdo);
+    if ($seance->create($heure_debut, $heure_fin, $qualite, $film_id, $salle_id)) {
+        $message = '<div class="alert alert-success">Séance ajoutée avec succès !</div>';
+    } else {
+        $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la séance.</div>';
+    }
+}
+
+// Récupération des films et salles pour les selects
+$films = Film::getAll();
+$salles = Salle::getAll();
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des séances - Administration Cinephoria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">Administration Cinephoria</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <h1>Ajouter une séance</h1>
+        <?php echo $message; ?>
+        
+        <form method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="heure_debut" class="form-label">Heure de début</label>
+                <input type="datetime-local" class="form-control" id="heure_debut" name="heure_debut" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="heure_fin" class="form-label">Heure de fin</label>
+                <input type="datetime-local" class="form-control" id="heure_fin" name="heure_fin" required>
+            </div>
+            
+            <div class="mb-3">
+                <label for="qualite" class="form-label">Qualité de projection</label>
+                <select class="form-select" id="qualite" name="qualite" required>
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                    <option value="IMAX">IMAX</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="film_id" class="form-label">Film</label>
+                <select class="form-select" id="film_id" name="film_id" required>
+                    <?php foreach ($films as $film): ?>
+                        <option value="<?php echo $film['id']; ?>">
+                            <?php echo htmlspecialchars($film['titre']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="salle_id" class="form-label">Salle</label>
+                <select class="form-select" id="salle_id" name="salle_id" required>
+                    <?php foreach ($salles as $salle): ?>
+                        <option value="<?php echo $salle['id']; ?>">
+                            Salle <?php echo $salle['id']; ?> (<?php echo $salle['nbr_places']; ?> places)
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Ajouter la séance</button>
+        </form>
+    </div>
+
+    <?php include 'footer.php'; ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

@@ -1,34 +1,45 @@
 <?php 
 
 class Film {
-    private $pdo;
-    private $table = "films";
+    private static $pdo;
+    private static $table = "films";
+
+    public static function setPdo($pdo) {
+        self::$pdo = $pdo;
+    }
 
     public function __construct($pdo) {
-        $this->pdo = $pdo;
+        self::$pdo = $pdo;
     }
 
-    public function create($titre, $description, $age_min, $note, $genre, $jour) {
-        $sql = "INSERT INTO {$this->table} (titre, description, age_min, note, genre, jour) 
-                VALUES (:titre, :description, :age_min, :note, :genre, :jour)";
-        $stmt = $this->pdo->prepare($sql);
-        return $stmt->execute(compact('titre', 'description', 'age_min', 'note', 'genre', 'jour'));
+    public function create($titre, $description, $age_min, $note, $genre, $date, $poster) {
+        $sql = "INSERT INTO " . self::$table . " (titre, description, age_min, note, genre, date, poster) 
+                VALUES (:titre, :description, :age_min, :note, :genre, :date, :poster)";
+        $stmt = self::$pdo->prepare($sql);
+        return $stmt->execute([
+            'titre' => $titre,
+            'description' => $description,
+            'age_min' => $age_min,
+            'note' => $note,
+            'genre' => $genre,
+            'date' => $date,
+            'poster' => $poster
+        ]);
     }
 
-    public function getAll() {
-        $requette = $this->pdo->prepare(" SELECT * FROM `films`");
+    public static function getAll() {
+        $requette = self::$pdo->prepare("SELECT * FROM " . self::$table);
         $requette->execute();
         $films = $requette->fetchAll();
-        return films;
+        return $films;
     }
 
     public function getFilmById($id) {
-        $requette = $this->pdo->prepare(" SELECT * FROM `films` WHERE id=:id ");
+        $requette = self::$pdo->prepare("SELECT * FROM " . self::$table . " WHERE id=:id");
         $requette->execute(['id'=>$id]);
         $film = $requette->fetch();
         return $film;
     }
-
 }
 
 

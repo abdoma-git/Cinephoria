@@ -105,6 +105,10 @@
     .star-rating .star.filled {
     color: #ffdc0f;
     }
+
+    #description {
+      width: 700px;
+    }	
 </style>
 
 <body>
@@ -127,7 +131,7 @@
         <div class="container-details-film">
             <h1> <?= $film['titre']; ?> </h1>
             <p>Genre : <?= $film['genre']; ?> </p>
-            <p>Description: </br> <?= $film['description']; ?> </p>
+            <p id="description">Description: </br> <?= $film['description']; ?> </p>
             <span class="star-rating">
                 <?php
                     $note = (int)$film['note'];
