@@ -1,0 +1,10 @@
+Architecture : MVC
+M : Modeles 
+V : Vues
+C : Controller
+
+Modeles : ce sot la definition des tables de la base de donnees, mais sous format de classe
+
+Vues : Ce sont les page php
+
+Controllers : Ces sont des fonctions qui gerents les modeles, classes
