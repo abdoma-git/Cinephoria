@@ -52,7 +52,7 @@
           <div class="detail-box pr-md-2">
             <div class="heading_container">
               <h2 class="">
-                About Us
+                A propos de nous
               </h2>
             </div>
             <p class="detail_p_mt">
@@ -62,7 +62,7 @@
 
             </p>
             <a href="about.html" class="">
-              Read More
+              En savoir plus
             </a>
           </div>
         </div>

@@ -10,9 +10,9 @@ Salle::setPdo($pdo);
 
 // Récupération des séances du jour
 $seance = new Seance($pdo);
-$seances = $seance->getAll();
-$films = Film::getAll();
-$salles = Salle::getAll();
+$seances = $seance->getAll($pdo);
+$films = Film::getAll($pdo);
+$salles = Salle::getAll($pdo);
 
 // Création d'un tableau d'index pour les films et les salles
 $filmsIndex = [];
@@ -40,7 +40,7 @@ function formatHeure($heure) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <style>
         .navbar-brand img {
-            height: 40px;
+            height: 60px;
         }
         .seance-card {
             transition: transform 0.2s;
@@ -59,7 +59,7 @@ function formatHeure($heure) {
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">
-                <img src="../../assets/images/logo.png" alt="Cinephoria Logo">
+                <img src="../../images/logo.png" width="100" height="100" alt="Cinephoria logo"> 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -144,8 +144,6 @@ function formatHeure($heure) {
         </div>
     </div>
 
-    <!-- Pied de page -->
-    <?php include '../footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

@@ -5,6 +5,8 @@
     unset($_SESSION["prenom"]);
     unset($_SESSION["username"]);
     unset($_SESSION["email"]);
+    $_SESSION["id_user"] = 0;
+    
     $_SESSION["connecte"] = 0;
 
     header('Location: index.php');

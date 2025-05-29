@@ -1,23 +1,25 @@
 <?php
-require_once '../../connexion.php';
+require_once '../../connexion.php'; //  j'ai la valrianble $pdo
 require_once '../../Modeles/Employe.php';
 
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    //if (isset($_POST['submit'])) {
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $email = $_POST['email'];
     $mot_de_passe = $_POST['mot_de_passe'];
 
     $employe = new Employe($nom, $prenom, $email, $mot_de_passe);
-    if ($employe->save()) {
+    if ($employe->save($pdo)) {
         $message = '<div class="alert alert-success">Employé ajouté avec succès !</div>';
     } else {
         $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de l\'employé.</div>';
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,11 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Administration Cinephoria</a>
-        </div>
-    </nav>
+       <?php include('menu_admin.php');?>
 
     <div class="container mt-4">
         <h1>Ajouter un employé</h1>

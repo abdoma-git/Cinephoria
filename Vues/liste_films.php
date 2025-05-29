@@ -9,6 +9,7 @@
   $film_class = new Film($pdo);
   
   $tableefilms = $film_class->getAll($pdo);
+  
   $topFilms = Film::getTop5($pdo);
   $nouveauxFilms = Film::getLast5($pdo);
   $filmsAleatoires = Film::getRandom5($pdo);
@@ -194,12 +195,12 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-         Selection du jour
+         Tous les films
         </h2>
       </div>
       <div class="row">
       <?php
-          foreach ( $filmsAleatoires as $ligne ){
+          foreach ( $tableefilms as $ligne ){
             print('
             
               <div class=" poster-hover col-md-2 col-sm-6 mx-auto">
@@ -216,143 +217,13 @@
             ');
           }
         ?>
-      </div>
-      <br>
-      <div class="container d-flex align-items-center">
-        <a href="liste_films.php" class="m-auto">
-            <button class="btn btn-primary"> Voir tous les films </button>
-        </a>
       </div>
       
     </div>
     
   </section>
 
-<!-- Tendances -->
-  <section class="team_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-         Films en tendances
-        </h2>
-      </div>
-      <div class="row">
-      <?php
-          foreach ( $topFilms as $ligne ){
-            print('
-              <div class=" poster-hover col-md-2 col-sm-6 mx-auto">
-                <a href="details_film.php?id_film='.$ligne['id'].'">
-                  <div class="box">
-                    <div class="img-box">
-                      <img src='.$ligne["poster"].'>
-                      <p class="poster-title"> '.$ligne["titre"].' </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ');
-          }
-        ?>
-        
-      </div>
 
-      <br>
-      <div class="container d-flex align-items-center">
-        <a href="liste_films.php" class="m-auto">
-            <button class="btn btn-primary"> Voir tous les films </button>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Nouveautes du jour -->
-
-  <section class="team_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-         Nouveautes
-        </h2>
-      </div>
-      <div class="row">
-        <?php
-          foreach ( $nouveauxFilms as $ligne ){
-            print('
-              <div class=" poster-hover col-md-2 col-sm-6 mx-auto">
-                <a href="details_film.php?id_film='.$ligne['id'].'">
-                  <div class="box">
-                    <div class="img-box">
-                      <img src='.$ligne["poster"].'>
-                      <p class="poster-title"> '.$ligne["titre"].' </p>
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ');
-          }
-        ?>
-        
-        
-      </div>
-      <br>
-      <div class="container d-flex align-items-center">
-        <a href="liste_films.php" class="m-auto">
-            <button class="btn btn-primary"> Voir tous les films </button>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Tendances -->
-  <section class="team_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-         Trailers
-        </h2>
-      </div>
-
-      <style>
-        iframe{
-              border-radius: 15px;
-        }
-      </style>
-      <div class="row mt-5">
-    
-        <div class="poster-hover col-md-3 col-sm-6 mb-4">
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/8hP9D6kZseM" title="Inception - Trailer" allowfullscreen></iframe>
-          </div>
-          <h5 class="text-center mt-2">Inception - Trailer</h5>
-        </div>
-
-        <div class="poster-hover col-md-3 col-sm-6 mb-4">
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/zSWdZVtXT7E" title="Interstellar - Trailer" allowfullscreen></iframe>
-          </div>
-          <h5 class="text-center mt-2">Interstellar - Trailer</h5>
-        </div>
-
-        <div class="poster-hover col-md-3 col-sm-6 mb-4">
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/EXeTwQWrcwY" title="The Dark Knight - Trailer" allowfullscreen></iframe>
-          </div>
-          <h5 class="text-center mt-2">The Dark Knight - Trailer</h5>
-        </div>
-
-        <div class="poster-hover col-md-3 col-sm-6 mb-4">
-          <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/P5ieIbInFpg" title="The Dark Knight - Trailer" allowfullscreen></iframe>
-          </div>
-          <h5 class="text-center mt-2">Gladitor - Trailer</h5>
-        </div>
-
-           
-      </div>
-
-    </div>
-  </section>
 
   <!-- end team section -->
 

@@ -1,5 +1,5 @@
 <?php
-require_once '../../connexion.php';
+require_once '../../connexion.php'; // cela me donne la variable $pdo
 require_once '../../Modeles/Salle.php';
 require_once '../../Modeles/Cinema.php';
 
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cinema_id = $_POST['cinema_id'];
 
     $salle = new Salle($nbr_places, $qualite_projection, $cinema_id);
-    if ($salle->save()) {
+    if ($salle->save($pdo)) {
         $message = '<div class="alert alert-success">Salle ajoutée avec succès !</div>';
     } else {
         $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la salle.</div>';
@@ -33,11 +33,8 @@ $cinemas = Cinema::getAll();
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Administration Cinephoria</a>
-        </div>
-    </nav>
+
+       <?php include('menu_admin.php');?>
 
     <div class="container mt-4">
         <h1>Ajouter une salle</h1>

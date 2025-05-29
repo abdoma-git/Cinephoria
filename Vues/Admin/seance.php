@@ -26,8 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Récupération des films et salles pour les selects
-$films = Film::getAll();
-$salles = Salle::getAll();
+$films = Film::getAll($pdo);
+$salles = Salle::getAll($pdo);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,12 +38,11 @@ $salles = Salle::getAll();
     <title>Gestion des séances - Administration Cinephoria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">Administration Cinephoria</a>
-        </div>
-    </nav>
+
+<?php include('menu_admin.php');?>
 
     <div class="container mt-4">
         <h1>Ajouter une séance</h1>

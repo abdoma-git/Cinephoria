@@ -1,5 +1,7 @@
 <?php
+
 class Admin {
+
     private static $pdo;
     private $id;
     private $email;

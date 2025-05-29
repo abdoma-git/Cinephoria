@@ -283,6 +283,10 @@ a:focus {
   outline: none;
 }
 
+.header_section .header_bottom{
+  padding: 0px !important;
+}
+
 .custom_nav-container .navbar-toggler {
   padding: 0;
   width: 37px;

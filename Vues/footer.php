@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-3 ">
             <a class="navbar-brand" href="index.html">
-              Cinephoria
+              Cinéphoria
             </a>
           </div>
           <div class="col-md-5 ">
@@ -16,12 +16,7 @@
                   Location
                 </span>
               </a>
-              <a href="">
-                <i class="fa fa-phone" aria-hidden="true"></i>
-                <span>
-                  +33 (0)5 67 54 62 98
-                </span>
-              </a>
+              
             </div>
           </div>
           <div class="col-md-4 ">
@@ -47,45 +42,66 @@
           <div class="col-lg-3 col-md-6">
             <div class="info_detail">
               <h5>
-                Cinema
+                Contact
               </h5>
-              <p>
-                Chez Cinephoria, ce qui compte c'est votre satisfaction !
-              </p>
+              
+              <p><i class="fa fa-phone"></i> +33 1 23 45 67 89</p>
+              <p><i class="fa fa-envelope"></i> contact@cinephoria.fr</p>
             </div>
           </div>
           
           <div class="col-lg-4 col-md-6">
             <div class="info_detail">
               <h5>
-                A propos
+                Horaires
               </h5>
               <p>
-                Randomised words which don't look even slightly believable. If you are going to use a passage of
-                Lorem
-                Ipsum, you need to be sure
+               Lundi-Vendredi: 10h-23h
+              </p>
+              <p>
+               Samedi-Dimanche: 9h-00h
               </p>
             </div>
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="">
               <h5>
-                Liens Utiles
+                Nos cinémas
               </h5>
-              <ul class="info_menu">
-                <li>
+              <ul class="info_menu" style="display:grid; grid-template-columns:200px 200px;">
+                <li class="">
                   <a href="index.php">
-                    Accueil
+                    Paris
                   </a>
                 </li>
-                <li>
+                <li class="">
+                  <a href="index.php">
+                    Nantes
+                  </a>
+                </li>
+                <li class="">
+                  <a href="index.php">
+                    Bordeaux
+                  </a>
+                </li>
+                <li class="">
                   <a href="about.php">
-                    A propos
+                    Toulouse
+                  </a>
+                </li>
+                <li class="">
+                  <a href="index.php">
+                    Lille
+                  </a>
+                </li>
+                <li class="">
+                  <a href="index.php">
+                    Charleroi
                   </a>
                 </li>
                 <li class="mb-0">
                   <a href="contact.php">
-                    Contact
+                    Liège
                   </a>
                 </li>
               </ul>
@@ -102,7 +118,7 @@
   <footer class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved
+        &copy; <span id="displayYear"></span>  Cinéphoria - Tous droits réservés
       </p>
     </div>
   </footer>

@@ -74,6 +74,7 @@
 			$requette->execute();
 			$tableUsers = $requette->fetchAll();
 			$point = 0;
+			
 			//boucle sur les utilisateurs de la table visiteur
 			foreach ( $tableUsers as $ligne ){
 

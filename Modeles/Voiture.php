@@ -30,13 +30,5 @@
             print('La voiture dont le modele est '.$this->modele.' a '.$this->km.' km et de couleur '.$this->couleur.'');
         }
 
-
-        
-
-
-
     }
-
-
-
 ?>

@@ -5,15 +5,12 @@
   include("../connexion.php");
   include("../Modeles/Reservation.php");
   include("../Modeles/Film.php");
-  include("../Modeles/Seance.php");
+  include("../Modeles/Avis.php");
   
   $film_class = new Film($pdo);
   $film = $film_class->getFilmById($pdo,$_GET['id_film']);
 
-  $seance_class = new Seance($pdo);
-  $seance = $seance_class->getById($_GET['id_seance']);
-
-  $reservation_class = new Reservation($pdo);
+  $avis = new Avis($pdo);
 ?>
 
 <head>
@@ -49,7 +46,7 @@
 
 <style>
 
-.img-box{
+    .img-box{
     position: relative;
   }
   
@@ -88,7 +85,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-            Details du Film <mark><i><u> <?= $film['titre'];?> </u></i></mark>
+            Donnez votre avis sur le film :  <mark><i><u> <?= $film['titre'];?> </u></i></mark>
         </h2>
       </div>
         <div class="row">
@@ -100,24 +97,22 @@
               </div>
 
               <div class="mb-3">
-                <input type="number" hidden class="form-control" name="seance_id" value="<?= $_GET['id_seance']; ?>" >
+                <input type="number" hidden class="form-control" name="id_film" value="<?= $_GET['id_film']; ?>" >
               </div>
 
               <div class="mb-3">
-                <label for="nombre_places" class="form-label">Nombre de places</label>
-                <input type="number" class="form-control" name="nombre_places" id="nombre_places" required min="1">
+                <label for="nombre_places" class="form-label">Note / 5</label>
+                <input type="number" class="form-control" name="note" id="note" required max="5">
               </div>
 
               <div class="mb-3">
-                <label for="date_reservation" class="form-label">Date de réservation</label>
-                <input type="date" class="form-control" name="date_reservation" id="date_reservation" value="<?= date('Y-m-d') ?>" required>
+                <label for="nombre_places" class="form-label">Commentaire</label>
+                <input type="text" class="form-control" name="commentaire" id="commentaire">
               </div>
 
-              <div class="mb-1">
-                <input type="text" hidden class="form-control" name="statut" value="En attente">
-              </div>
+             
 
-              <button type="submit" name="submit" class=" mt-5 btn btn-primary">Réserver</button>
+              <button type="submit" name="submit" class=" mt-5 btn btn-primary">Publier mon avis</button>
               </form>
           </div>
           <div class="col-md-4 mt-5">
@@ -130,32 +125,24 @@
         
 
         <?php
-
-
           if (isset($_POST['submit'])){
 
-            if ($_SESSION["id_user"] != 0){
+            $user_id = $_SESSION['id_user']; 
+            $id_film = $_GET['id_film']; 
+            $note = $_POST['note']; 
+            $commentaire = $_POST['commentaire']; 
+            $statut = '0';
 
-            
-
-              $user_id = $_SESSION['id_user']; 
-              $seance_id = $_GET['id_seance']; 
-              $id_film = $_GET['id_film']; 
-              $nombre_places = $_POST['nombre_places']; 
-              $date_reservation = $_POST['date_reservation']; 
-              $statut = $_POST['statut']; 
-
-              if ($reservation_class->create($user_id, $seance_id, $id_film, $nombre_places, $date_reservation, $statut)){
-                echo "<p class='my-5'> Reservation reussit ! </p>";
-              }else{
-                echo "<p class='my-5'> Echec de la reservation </p>";
-              }
+            if ($avis->create($user_id, $id_film, $note, $commentaire)){
+              echo "<p class='my-5'> Merci d'avoir pris le temps de noter ce film ! </p>";
+            }else{
+              echo "<p class='my-5'> Echec de notation </p>";
             }
-          }else{
-            header('Location: login-signup.php');
+
           }
         
         ?>
+
 
       <div class="mt-3">
 

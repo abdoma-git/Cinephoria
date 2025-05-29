@@ -8,7 +8,7 @@
   include("../Modeles/Seance.php");
   
   $film_class = new Film($pdo);
-  $film = $film_class->getFilmById($_GET['id_film']);
+  $film = $film_class->getFilmById($pdo,$_GET['id_film']);
 
   $seance_class = new Seance($pdo);
   $seances = $seance_class->getByFilmId($_GET['id_film']);

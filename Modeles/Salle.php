@@ -32,11 +32,11 @@ class Salle {
         return $this->cinema_id;
     }
 
-    public function save() {
+    public function save($pdo) {
         try {
-            $stmt = self::$pdo->prepare("INSERT INTO salles (nbr_places, qualite_projection, cinema_id) VALUES (?, ?, ?)");
+            $stmt = $pdo->prepare("INSERT INTO salles (nbr_places, qualite_projection, cinema_id) VALUES (?, ?, ?)");
             $stmt->execute([$this->nbr_places, $this->qualite_projection, $this->cinema_id]);
-            $this->id = self::$pdo->lastInsertId();
+            $this->id = $pdo->lastInsertId();
             return true;
         } catch (PDOException $e) {
             echo "Erreur lors de l'insertion de la salle : " . $e->getMessage();
@@ -44,14 +44,11 @@ class Salle {
         }
     }
 
-    public static function getAll() {
-        try {
-            $stmt = self::$pdo->query("SELECT * FROM salles");
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            echo "Erreur lors de la récupération des salles : " . $e->getMessage();
-            return [];
-        }
+    public static function getAll($pdo) {
+        $requette = $pdo->prepare("SELECT * FROM salles");
+        $requette->execute();
+        $salles = $requette->fetchAll();
+        return $salles;
     }
 }
 ?> 

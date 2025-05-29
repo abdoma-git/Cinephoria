@@ -27,20 +27,45 @@ class Film {
         ]);
     }
 
-    public static function getAll() {
-        $requette = self::$pdo->prepare("SELECT * FROM " . self::$table);
+    public static function getAll($pdo) {
+        $requette = $pdo->prepare("SELECT * FROM films");
         $requette->execute();
         $films = $requette->fetchAll();
         return $films;
     }
 
-    public function getFilmById($id) {
-        $requette = self::$pdo->prepare("SELECT * FROM " . self::$table . " WHERE id=:id");
+    public function getFilmById($pdo,$id) {
+        $requette = $pdo->prepare("SELECT * FROM " . self::$table . " WHERE id=:id");
         $requette->execute(['id'=>$id]);
         $film = $requette->fetch();
         return $film;
     }
+
+    public static function getTop5($pdo) {
+        $requette = $pdo->prepare("SELECT * FROM " . self::$table . " ORDER BY note DESC LIMIT 6");
+        $requette->execute();
+        return $requette->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public static function getLast5($pdo) {
+        $requette = $pdo->prepare("SELECT * FROM " . self::$table . " ORDER BY id DESC LIMIT 6");
+        $requette->execute();
+        return $requette->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+    public static function getRandom5($pdo) {
+        $requette = $pdo->prepare("SELECT * FROM " . self::$table . " ORDER BY RAND() LIMIT 6");
+        $requette->execute();
+        return $requette->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
+
 }
+
 
 
 ?>

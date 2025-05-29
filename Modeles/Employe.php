@@ -1,10 +1,16 @@
 <?php
 class Employe {
+    
     private $id;
     private $nom;
     private $prenom;
+    private static $pdo;
     private $email;
     private $mot_de_passe;
+
+    public static function setPdo($pdo) {
+        self::$pdo = $pdo;
+    }
 
     public function __construct($nom, $prenom, $email, $mot_de_passe) {
         $this->nom = $nom;
@@ -29,8 +35,25 @@ class Employe {
         return $this->email;
     }
 
-    public function save() {
-        global $pdo;
+    public static function login($email, $mot_de_passe) {
+        try {
+            $stmt = self::$pdo->prepare("SELECT * FROM employer WHERE email = ?");
+            $stmt->execute([$email]);
+            $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($admin && $mot_de_passe == $admin['mot_de_passe']) {
+                $_SESSION['admin_id'] = $admin['id'];
+                $_SESSION['admin_email'] = $admin['email'];
+                return true;
+            }
+            return false;
+        } catch (PDOException $e) {
+            echo "Erreur lors de la connexion : " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function save($pdo) {
         try {
             $stmt = $pdo->prepare("INSERT INTO employer (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
             $stmt->execute([$this->nom, $this->prenom, $this->email, $this->mot_de_passe]);
@@ -42,8 +65,7 @@ class Employe {
         }
     }
 
-    public static function getAll() {
-        global $pdo;
+    public static function getAll($pdo) {
         try {
             $stmt = $pdo->query("SELECT * FROM employer");
             return $stmt->fetchAll(PDO::FETCH_ASSOC);

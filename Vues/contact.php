@@ -55,24 +55,28 @@
         <div class="col-md-5 mx-auto">
           <div class="form_container">
             <div class="heading_container heading_center">
-              <h2>Get In Touch</h2>
+              <h2>Entrer en contact</h2>
             </div>
             <form action="">
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="text" class="form-control" placeholder="Your Name" />
+                  <input type="text" class="form-control" placeholder="Votre nom" />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-lg-6">
-                  <input type="text" class="form-control" placeholder="Phone Number" />
+                  <input type="text" class="form-control" placeholder="Votre téléphone" />
                 </div>
                 <div class="form-group col-lg-6">
                   <select name="" id="" class="form-control wide">
-                    <option value="">Select Service</option>
-                    <option value="">Service 1</option>
-                    <option value="">Service 2</option>
-                    <option value="">Service 3</option>
+                    <option value="">Choisir le cinéma</option>
+                    <option value="">Paris</option>
+                    <option value=""> Bordeaux</option>
+                    <option value="">Toulouse</option>
+                    <option value="">Lile</option>
+                    <option value="">Nantes</option>
+                    <option value="">Charleroi</option>
+                    <option value="">Liège</option>
                   </select>
                 </div>
               </div>
@@ -88,7 +92,7 @@
               </div>
               <div class="btn_box">
                 <button>
-                  SEND
+                  Envoyer la demande
                 </button>
               </div>
             </form>
@@ -148,24 +152,23 @@
           <div class="col-lg-3 col-md-6">
             <div class="info_detail">
               <h5>
-                Company
+              Entreprise
               </h5>
               <p>
-                Randomised words which don't look even slightly believable. If you are going to use a passage of
-                Lorem
-                Ipsum, you need to be sure
+              Cinéphoria est un joyau du cinéma français une icône du cinéma responsable.<br>
+              Horaires d'ouverture : Tous les jours de 10h à 23h.
               </p>
             </div>
           </div>
           <div class="col-lg-3 col-md-6">
             <div class="info_form">
               <h5>
-                NEWSLETTER
+                Vennez nous rencontrer.
               </h5>
               <form action="">
-                <input type="text" placeholder="Enter Your Email" />
+                <input type="text" placeholder="Enter votre Email" />
                 <button type="submit">
-                  Subscribe
+                S'abonner
                 </button>
               </form>
             </div>
@@ -173,39 +176,38 @@
           <div class="col-lg-4 col-md-6">
             <div class="info_detail">
               <h5>
-                Services
+                Un geste de bienveillance.
               </h5>
               <p>
-                Randomised words which don't look even slightly believable. If you are going to use a passage of
-                Lorem
-                Ipsum, you need to be sure
+              20% de notre chiffre d'affaires est reversé à des initiatives écologiques.
               </p>
             </div>
           </div>
           <div class="col-lg-2 col-md-6">
             <div class="">
               <h5>
-                Useful links
+                 
+             Liens utiles
               </h5>
               <ul class="info_menu">
                 <li>
                   <a href="index.html">
-                    Home
+                    Accueil
                   </a>
                 </li>
                 <li>
                   <a href="about.html">
-                    About
+                    Mes resrvations
                   </a>
                 </li>
                 <li>
                   <a href="service.html">
-                    Services
+                    contact
                   </a>
                 </li>
                 <li>
                   <a href="team.html">
-                    Team
+                    A propos
                   </a>
                 </li>
                 <li class="mb-0">
@@ -227,7 +229,7 @@
   <footer class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
+        &copy; <span id="displayYear"></span> Tous droits réservés 
         <a href="https://html.design/">Free Html Templates</a>
       </p>
     </div>
