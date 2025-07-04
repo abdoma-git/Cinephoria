@@ -4,7 +4,7 @@ class Employe {
     private $id;
     private $nom;
     private $prenom;
-    private static $pdo;
+    private $pdo;
     private $email;
     private $mot_de_passe;
 
@@ -12,16 +12,32 @@ class Employe {
         self::$pdo = $pdo;
     }
 
-    public function __construct($nom, $prenom, $email, $mot_de_passe) {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->email = $email;
-        $this->mot_de_passe = password_hash($mot_de_passe, PASSWORD_DEFAULT);
+    public function __construct(...$args) {
+        $n = count($args);
+        if ($n === 1 && $args[0] instanceof PDO) {
+            // cas : new Utilisateur($pdo)
+            $this->pdo = $args[0];
+        } elseif ($n === 4) {
+            // cas : new Utilisateur($nom, $prenom, $email, $mot_de_passe)
+            list($this->nom, $this->prenom, $this->email, $mdp) = $args;
+            $this->mot_de_passe = password_hash($mdp, PASSWORD_DEFAULT);
+        } else {
+            throw new InvalidArgumentException("Constructeur invalide");
+        }
     }
 
     public function getId() {
         return $this->id;
     }
+
+    
+    public function nombre_employe(){
+        $stmt = $this->pdo->prepare("SELECT count(*) AS 'nbr_employe' FROM `employer`");
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+
 
     public function getNom() {
         return $this->nom;

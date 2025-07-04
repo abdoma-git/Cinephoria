@@ -27,6 +27,13 @@
 
         }
 
+
+        public function nombre_utilisateur(){
+            $stmt = $this->pdo->prepare("SELECT count(*) AS 'nbr_utilisateur' FROM {$this->table}");
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        }
+
         public function getByEmail($email, $pwd) {
             $sql = "SELECT * FROM {$this->table} WHERE email = :email & mot_de_passe = :pwd";
             $stmt = $this->pdo->prepare($sql);

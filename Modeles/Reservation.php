@@ -8,6 +8,7 @@ class Reservation {
         $this->pdo = $pdo;
     }
 
+
     // Créer une nouvelle réservation
     public function create($user_id, $seance_id, $film_id, $nombre_places, $date_reservation, $statut) {
         $sql = "INSERT INTO {$this->table} 
@@ -23,6 +24,12 @@ class Reservation {
             'date_reservation' => $date_reservation,
             'statut' => $statut
         ]);
+    }
+
+    public function count_reservations(){
+        $stmt = $this->pdo->prepare("SELECT count(*) AS 'nbr_reservation' FROM {$this->table}");
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     // Récupérer toutes les réservations

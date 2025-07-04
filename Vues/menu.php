@@ -50,27 +50,49 @@
                 <li class="nav-item">
                   <a class="nav-link" href="contact.php">Contact</a>
                 </li>
-                <li class="nav-item">
+                
                   
                     <?php  
-                      if ($_SESSION['connecte'] == 1){
+                      if (isset($_SESSION['connecte'])){ // isset = si la varible existe
+
+                        if ($_SESSION['connecte'] == 1){
                         print('
-                          <a class="nav-link" href="logout.php">
-                            <i class="fa fa-user" aria-hidden="true"></i>
-                            <span>
-                              Se deconnecter
-                            </span>
-                          </a>
+                        
+                          <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span>Profile</span>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="userDropdown">
+                              <a class="dropdown-item" href="profile.php">Mon profil</a>
+                              <div class="dropdown-divider"></div>
+                              <a class="dropdown-item" href="logout.php">Se déconnecter</a>
+                            </div>
+                          </li>
                       ');
-                      //}if ($_SESSION["connecte"] == 0){
-                      }else{
+                        } else{
+                          print('
+                          <li class="nav-item">
+                            <a class="nav-link" href="login-signup.php">
+                              <i class="fa fa-user" aria-hidden="true"></i>
+                              <span>
+                                Se connecter
+                              </span>
+                            </a>
+                          </li>
+                        ');
+                        }
+                    }else{
                         print('
+                        <li class="nav-item">
                           <a class="nav-link" href="login-signup.php">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <span>
                               Se connecter
                             </span>
                           </a>
+                        </li>
                       ');
                       }
                     ?>

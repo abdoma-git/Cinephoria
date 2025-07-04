@@ -21,6 +21,31 @@ class Seance {
         ]);
     }
 
+    public function update($id,$heure_debut,$heure_fin,$qualité,$film_id,$salle_id) {
+        $sql = "UPDATE `seances` SET `heure_debut`=:heure_debut,`heure_fin`=:heure_fin,`qualité`=:qualité,`film_id`=:film_id,`salle_id`=:salle_id WHERE id=:id";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            'heure_debut' => $heure_debut,
+            'heure_fin' => $heure_fin,
+            'qualité' => $qualité,
+            'film_id' => $film_id,
+            'salle_id' => $salle_id,
+            'id' => $id
+        ]);
+    }
+    
+
+    public function count_seances(){
+        $stmt = $this->pdo->prepare("SELECT count(*) AS 'nbr_seance' FROM {$this->table}");
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
+
+
+
     public function getAll() {
         $stmt = $this->pdo->prepare("SELECT * FROM {$this->table}");
         $stmt->execute();

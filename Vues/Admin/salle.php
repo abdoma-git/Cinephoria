@@ -4,25 +4,30 @@ require_once '../../Modeles/Salle.php';
 require_once '../../Modeles/Cinema.php';
 
 // Initialisation de la connexion PDO pour la classe Cinema
-Cinema::setPdo($pdo);
+
 
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $nbr_places = $_POST['nbr_places'];
     $qualite_projection = $_POST['qualite_projection'];
     $cinema_id = $_POST['cinema_id'];
 
     $salle = new Salle($nbr_places, $qualite_projection, $cinema_id);
-    if ($salle->save($pdo)) {
-        $message = '<div class="alert alert-success">Salle ajoutée avec succès !</div>';
-    } else {
-        $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la salle.</div>';
+    {
+        if ($salle->save($pdo)) {
+            $message = '<div class="alert alert-success">Salle ajoutée avec succès !</div>';
+        } else {
+            $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la salle.</div>';
+        }
     }
 }
 
 // Récupération des cinémas pour le select
-$cinemas = Cinema::getAll();
+$cinema = new Cinema($pdo);
+$cinemas = $cinema->getAll($pdo);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

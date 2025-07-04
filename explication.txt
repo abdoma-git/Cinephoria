@@ -8,3 +8,13 @@ Modeles : ce sot la definition des tables de la base de donnees, mais sous forma
 Vues : Ce sont les page php
 
 Controllers : Ces sont des fonctions qui gerents les modeles, classes
+
+
+
+
+
+
+1 - creer la fonction update dans le modele de la table correspondante
+2 - lier le crayon avec la page d'ajout (ex. film)
+3 - ajouter les parametres au lien ?id=....
+4 - modifier le coode de la page insertion pour se comporter comme meodification si le id existe dans l'url

@@ -36,7 +36,12 @@
 
   <?php include("menu.php"); ?>
 
-    <section class="container m-5" id="list-reservations">
+  <br><br><br>
+  <br><br><br>
+
+  
+
+    <section class="container" id="list-reservations">
 
     <?php 
         include('../Modeles/Reservation.php');

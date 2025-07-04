@@ -5,10 +5,6 @@
         private static $pdo;
         private static $table = "cinemas";
 
-        public static function setPdo($pdo) {
-            self::$pdo = $pdo;
-        }
-
         public function __construct($pdo) {
             self::$pdo = $pdo;
         }
@@ -19,7 +15,7 @@
             return $stmt->execute(compact('nom', 'adresse', 'ville', 'pays'));
         }
 
-        public static function getAll() {
+        public static function getAll($pdo) {
             $sql = "SELECT * FROM " . self::$table;
             return self::$pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
         }

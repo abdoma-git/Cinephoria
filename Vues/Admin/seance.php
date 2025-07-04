@@ -5,8 +5,18 @@ require_once '../../Modeles/Film.php';
 require_once '../../Modeles/Salle.php';
 
 // Initialisation de la connexion PDO pour les classes
-Film::setPdo($pdo);
-Salle::setPdo($pdo);
+
+if (!empty($_GET["id"])){
+
+    $titre = $_GET['titre'];
+    $heure_debut_1 = $_GET['heure_debut'];
+    $heure_fin_1 = $_GET['heure_fin'];
+    $qualité = $_GET['qualité'];
+    $salle_id = $_GET['salle_id'];
+    $film_id = $_GET['film_id'];
+
+}
+
 
 $message = '';
 
@@ -18,10 +28,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $salle_id = $_POST['salle_id'];
 
     $seance = new Seance($pdo);
-    if ($seance->create($heure_debut, $heure_fin, $qualite, $film_id, $salle_id)) {
-        $message = '<div class="alert alert-success">Séance ajoutée avec succès !</div>';
-    } else {
-        $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la séance.</div>';
+    if (!empty($_GET["id"])){
+        
+        if ($seance->update($_GET["id"],$heure_debut, $heure_fin, $qualité, $salle_id, $film_id)) {
+        $message = '<div class="alert alert-success">Salle modifié avec succès !</div>';
+        } else {
+            $message = '<div class="alert alert-danger">Erreur lors de la modification de la salle.</div>';
+        }
+
+    }else{
+
+        if ($seance->create($heure_debut, $heure_fin, $qualite, $film_id, $salle_id)) {
+            $message = '<div class="alert alert-success">Séance ajoutée avec succès !</div>';
+        } else {
+            $message = '<div class="alert alert-danger">Erreur lors de l\'ajout de la séance.</div>';
+        }
+
     }
 }
 
@@ -47,6 +69,58 @@ $salles = Salle::getAll($pdo);
     <div class="container mt-4">
         <h1>Ajouter une séance</h1>
         <?php echo $message; ?>
+
+        <?php  
+            if (!empty($_GET["id"])){
+        ?>
+
+                <form method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="heure_debut" class="form-label">Heure de début</label>
+                <input type="time" class="form-control" id="heure_debut" name="heure_debut" value="<?php print($heure_debut_1) ?>" >
+            </div>
+            
+            <div class="mb-3">
+                <label for="heure_fin" class="form-label">Heure de fin</label>
+                <input type="time" class="form-control" id="heure_fin" name="heure_fin" value="<?php print($heure_fin_1) ?>" >
+            </div>
+            
+            <div class="mb-3">
+                <label for="qualite" class="form-label">Qualité de projection</label>
+                <select class="form-select" id="qualite" name="qualite" required>
+                    <option value="<?php print($qualité)?>">Actuelle : <?php print($qualité)?></option>
+                    <option value="2D">2D</option>
+                    <option value="3D">3D</option>
+                    <option value="IMAX">IMAX</option>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="film_id" class="form-label">Film</label>
+                <select class="form-select" id="film_id" name="film_id">
+                    <?php foreach ($films as $film): ?>
+                        <option value="<?php echo $film['id']; ?>">
+                            <?php echo htmlspecialchars($film['titre']); ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <div class="mb-3">
+                <label for="salle_id" class="form-label">Salle</label>
+                <select class="form-select" id="salle_id" name="salle_id">
+                    <?php foreach ($salles as $salle): ?>
+                        <option value="<?php echo $salle['id']; ?>">
+                            Salle (<?php echo $salle['id']; ?>) : <?php echo $salle['nbr_places']; ?> places
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Modifier la séance</button>
+        </form>
+
+        <?php } else { ?>
         
         <form method="POST" class="mt-4">
             <div class="mb-3">
@@ -92,6 +166,8 @@ $salles = Salle::getAll($pdo);
             
             <button type="submit" class="btn btn-primary">Ajouter la séance</button>
         </form>
+
+        <?php }?>
     </div>
 
     <?php include 'footer.php'; ?>

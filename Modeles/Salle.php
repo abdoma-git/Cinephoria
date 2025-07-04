@@ -1,6 +1,6 @@
 <?php
 class Salle {
-    private static $pdo;
+    private $pdo;
     private $id;
     private $nbr_places;
     private $qualite_projection;
@@ -10,11 +10,33 @@ class Salle {
         self::$pdo = $pdo;
     }
 
-    public function __construct($nbr_places, $qualite_projection, $cinema_id) {
-        $this->nbr_places = $nbr_places;
-        $this->qualite_projection = $qualite_projection;
-        $this->cinema_id = $cinema_id;
+    public function __construct(...$args) {
+        $n = count($args);
+
+        // nouveau : construction par données
+        if ($n === 3) {
+            $this->nbr_places = $args[0]; 
+            $this->qualite_projection = $args[1];
+            $this->cinema_id = $args[2];
+
+        // autre surcharge possible, par exemple avec un PDO
+        } elseif ($n === 1 && $args[0] instanceof PDO) {
+            // si tu veux initialiser un accès BD partagé
+            $this->pdo = $args[0];
+
+        } else {
+            throw new InvalidArgumentException("Constructeur invalide, attendu soit (int, string, int) soit (PDO)");
+        }
     }
+
+    public function count_salle(){
+        $stmt = $this->pdo->prepare("SELECT count(*) AS 'nbr_salle' FROM `salles`");
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+
+
 
     public function getId() {
         return $this->id;
@@ -43,6 +65,8 @@ class Salle {
             return false;
         }
     }
+
+    
 
     public static function getAll($pdo) {
         $requette = $pdo->prepare("SELECT * FROM salles");
