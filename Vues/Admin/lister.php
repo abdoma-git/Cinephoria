@@ -118,9 +118,7 @@
                             <td>'.$value["seance_id"].'</td>
                             <td class="d-flex" style="gap:20px;">
                                 <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> 
-                                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
-                                </a>
+                               
                             </td>
                         </tr>
                         ');
@@ -159,9 +157,7 @@
                             <td>'.$value["email"].'</td>
                             <td class="d-flex" style="gap:20px;">
                                 <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> 
-                                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
-                                </a>
+                                
                             </td> 
                         </tr>
                         ');
@@ -201,9 +197,7 @@
                             <td>'.$value["email"].'</td>   
                             <td class="d-flex" style="gap:20px;">
                                 <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> 
-                                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
-                                </a>
+                                
                             </td>                        
                         </tr>
                         ');
@@ -243,12 +237,12 @@
                             <th scope="row">'.$value["id"].'</th>
                             <td>'.$value["heure_debut"].'</td>
                             <td>'.$value["heure_fin"].'</td>
-                            <td>'.$value["qualité"].'</td>
+                            <td>'.$value["qualite"].'</td>
                             <td>'.$value["film_id"].'</td>
                             <td>'.$value["salle_id"].'</td>
                             <td class="d-flex" style="gap:20px;">
                                 <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
-                                <a href="seance.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'&heure_debut='.$value["heure_debut"].'&heure_fin='.$value["heure_fin"].'&qualité='.$value["qualité"].'&salle_id='.$value["salle_id"].'&film_id='.$value["film_id"].'"> 
+                                <a href="seance.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'&heure_debut='.$value["heure_debut"].'&heure_fin='.$value["heure_fin"].'&qualité='.$value["qualite"].'&salle_id='.$value["salle_id"].'&film_id='.$value["film_id"].'"> 
                                     <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
                                 </a>
                             </td>  
@@ -290,7 +284,7 @@
                             <td>'.$value["cinema_id"].'</td>
                             <td class="d-flex" style="gap:20px;">
                                 <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
-                                <a href="salle.php?table='.$table.'&titre_page='.$titre.'&id='.$value["id"].'"> 
+                                <a href="salle.php?table='.$table.'&titre_page='.$titre.'&id='.$value["id"].'&nbr_places='.$value["nbr_places"].'&qualite_projection='.$value["qualite_projection"].'&cinema_id='.$value["cinema_id"].'"> 
                                     <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
                                 </a>
                             </td>  

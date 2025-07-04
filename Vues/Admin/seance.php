@@ -28,9 +28,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $salle_id = $_POST['salle_id'];
 
     $seance = new Seance($pdo);
+    
     if (!empty($_GET["id"])){
         
-        if ($seance->update($_GET["id"],$heure_debut, $heure_fin, $qualité, $salle_id, $film_id)) {
+        if ($seance->update($_GET["id"],$heure_debut, $heure_fin, $qualite, $film_id, $salle_id)) {
         $message = '<div class="alert alert-success">Salle modifié avec succès !</div>';
         } else {
             $message = '<div class="alert alert-danger">Erreur lors de la modification de la salle.</div>';
@@ -98,6 +99,7 @@ $salles = Salle::getAll($pdo);
             <div class="mb-3">
                 <label for="film_id" class="form-label">Film</label>
                 <select class="form-select" id="film_id" name="film_id">
+                    <option value="<?php print($film_id)?>">Actuelle : <?php print($film_id)?></option>
                     <?php foreach ($films as $film): ?>
                         <option value="<?php echo $film['id']; ?>">
                             <?php echo htmlspecialchars($film['titre']); ?>
@@ -109,6 +111,7 @@ $salles = Salle::getAll($pdo);
             <div class="mb-3">
                 <label for="salle_id" class="form-label">Salle</label>
                 <select class="form-select" id="salle_id" name="salle_id">
+                    <option value="<?php print($salle_id)?>">Actuelle : <?php print($salle_id)?></option>
                     <?php foreach ($salles as $salle): ?>
                         <option value="<?php echo $salle['id']; ?>">
                             Salle (<?php echo $salle['id']; ?>) : <?php echo $salle['nbr_places']; ?> places

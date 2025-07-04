@@ -66,6 +66,15 @@ class Salle {
         }
     }
 
+    public function update($pdo,$id,$nbr_places,$qualite_projection,$cinema_id) {
+         $stmt = $pdo->prepare("UPDATE `salles` SET `nbr_places`=:nbr_places,`qualite_projection`=:qualite_projection,`cinema_id`=:cinema_id WHERE id=:id");
+        return $stmt->execute([
+            'nbr_places' => $nbr_places,
+            'qualite_projection' => $qualite_projection,
+            'cinema_id' => $cinema_id,
+            'id' => $id
+        ]);
+    }
     
 
     public static function getAll($pdo) {

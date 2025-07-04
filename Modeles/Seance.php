@@ -9,7 +9,7 @@ class Seance {
     }
 
     public function create($heure_debut, $heure_fin, $qualite, $film_id, $salle_id) {
-        $sql = "INSERT INTO {$this->table} (heure_debut, heure_fin, qualité, film_id, salle_id) 
+        $sql = "INSERT INTO {$this->table} (heure_debut, heure_fin, qualite, film_id, salle_id) 
                 VALUES (:heure_debut, :heure_fin, :qualite, :film_id, :salle_id)";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
@@ -21,13 +21,13 @@ class Seance {
         ]);
     }
 
-    public function update($id,$heure_debut,$heure_fin,$qualité,$film_id,$salle_id) {
-        $sql = "UPDATE `seances` SET `heure_debut`=:heure_debut,`heure_fin`=:heure_fin,`qualité`=:qualité,`film_id`=:film_id,`salle_id`=:salle_id WHERE id=:id";
+    public function update($id,$heure_debut,$heure_fin,$qualite,$film_id,$salle_id) {
+        $sql = "UPDATE `seances` SET `heure_debut`=:heure_debut,`heure_fin`=:heure_fin,`qualite`=:qualite,`film_id`=:film_id,`salle_id`=:salle_id WHERE id=:id";
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
             'heure_debut' => $heure_debut,
             'heure_fin' => $heure_fin,
-            'qualité' => $qualité,
+            'qualite' => $qualite,
             'film_id' => $film_id,
             'salle_id' => $salle_id,
             'id' => $id
