@@ -65,11 +65,15 @@
                             <td> <img width="100" height="100" src='.$value["poster"].'></td>
                             <td class="d-flex" style="gap:20px;">
                                 <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> 
-                                    <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> 
+                                    <button class="btn btn-danger">
+                                        <img width="20" height="20" src="https://img.icons8.com/sf-regular/20/filled-trash.png" alt="filled-trash"/> 
+                                    </button> 
                                 </a>
 
                                 <a href="film.php?table='.$table.'&titre_page='.$titre.'&id='.$value["id"].'&titre_film='.$value["titre"].'&description='.$value["description"].'&age_min='.$value['age_min'].'&note='.$value["note"].'&genre='.$value["genre"].'&date='.$value["date"].'&poster='.$value["poster"].'"> 
-                                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
+                                    <button class="btn btn-warning"> 
+                                        <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/20/create-new--v1.png" alt="create-new--v1"/> 
+                                    </button> 
                                 </a>
                             </td>
                             
@@ -117,7 +121,9 @@
                             <td>'.$value["statut"].'</td>
                             <td>'.$value["seance_id"].'</td>
                             <td class="d-flex" style="gap:20px;">
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
+                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <button class="btn btn-danger">
+                                        <img width="20" height="20" src="https://img.icons8.com/sf-regular/20/filled-trash.png" alt="filled-trash"/> 
+                                    </button> </a>
                                
                             </td>
                         </tr>
@@ -156,7 +162,9 @@
                             <td>'.$value["prenom"].'</td>
                             <td>'.$value["email"].'</td>
                             <td class="d-flex" style="gap:20px;">
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
+                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <button class="btn btn-danger">
+                                        <img width="20" height="20" src="https://img.icons8.com/sf-regular/20/filled-trash.png" alt="filled-trash"/> 
+                                    </button> </a>
                                 
                             </td> 
                         </tr>
@@ -196,7 +204,9 @@
                             <td>'.$value["nom_utilisateur"].'</td>
                             <td>'.$value["email"].'</td>   
                             <td class="d-flex" style="gap:20px;">
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
+                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <button class="btn btn-danger">
+                                        <img width="20" height="20" src="https://img.icons8.com/sf-regular/20/filled-trash.png" alt="filled-trash"/> 
+                                    </button> </a>
                                 
                             </td>                        
                         </tr>
@@ -241,9 +251,13 @@
                             <td>'.$value["film_id"].'</td>
                             <td>'.$value["salle_id"].'</td>
                             <td class="d-flex" style="gap:20px;">
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
+                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <button class="btn btn-danger">
+                                        <img width="20" height="20" src="https://img.icons8.com/sf-regular/20/filled-trash.png" alt="filled-trash"/> 
+                                    </button> </a>
                                 <a href="seance.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'&heure_debut='.$value["heure_debut"].'&heure_fin='.$value["heure_fin"].'&qualité='.$value["qualite"].'&salle_id='.$value["salle_id"].'&film_id='.$value["film_id"].'"> 
-                                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
+                                    <button class="btn btn-warning"> 
+                                        <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/20/create-new--v1.png" alt="create-new--v1"/> 
+                                    </button> 
                                 </a>
                             </td>  
                            
@@ -283,10 +297,18 @@
                             <td>'.$value["qualite_projection"].'</td>
                             <td>'.$value["cinema_id"].'</td>
                             <td class="d-flex" style="gap:20px;">
-                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/filled-trash.png" alt="filled-trash"/> </a>
-                                <a href="salle.php?table='.$table.'&titre_page='.$titre.'&id='.$value["id"].'&nbr_places='.$value["nbr_places"].'&qualite_projection='.$value["qualite_projection"].'&cinema_id='.$value["cinema_id"].'"> 
-                                    <img width="25" height="25" src="https://img.icons8.com/ios-filled/50/edit--v1.png" alt="edit--v1"/> 
+
+                                <a href="delete.php?table='.$table.'&titre='.$titre.'&id='.$value["id"].'"> 
+                                        <button class="btn btn-danger">
+                                        <img width="20" height="20" src="https://img.icons8.com/sf-regular/20/filled-trash.png" alt="filled-trash"/> 
+                                    </button> 
                                 </a>
+                                <a href="salle.php?table='.$table.'&titre_page='.$titre.'&id='.$value["id"].'&nbr_places='.$value["nbr_places"].'&qualite_projection='.$value["qualite_projection"].'&cinema_id='.$value["cinema_id"].'"> 
+                                    <button class="btn btn-warning"> 
+                                        <img width="20" height="20" src="https://img.icons8.com/pastel-glyph/20/create-new--v1.png" alt="create-new--v1"/> 
+                                    </button>
+                                    
+                                    </a>
                             </td>  
 
                         </tr>
