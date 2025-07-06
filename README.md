@@ -25,6 +25,9 @@ est une application web de gestion de cinéma développée en PHP avec une base 
 <img src="web3.png">
 
 ### 🛠️ Espace Employé
+
+<a href="https://abdou.website/Cinephoria/Vues/Employe/"> www.Staff-Cinéphoria.com </a>
+
 - Gestion des films, séances, salles.
 - Validation ou suppression des avis.
 - Accès via le bouton **Intranet** après connexion.
