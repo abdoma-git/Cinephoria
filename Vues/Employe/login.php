@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion - Administration Cinephoria</title>
+    <title>Connexion - Employe Cinephoria</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="login-container">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="text-center mb-4">Connexion Admin</h2>
+                    <h2 class="text-center mb-4">Connexion Staff</h2>
                     <?php echo $message; ?>
                     
                     <form method="POST" action="">

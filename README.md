@@ -1,6 +1,6 @@
 # 🎬 Cinéphoria – Application Web
-
-Cinéphoria est une application web de gestion de cinéma développée en PHP avec une base de données MySQL. Elle permet aux visiteurs de réserver des séances de cinéma, aux utilisateurs de gérer leurs commandes, et aux administrateurs/employés de gérer les films, salles, séances et utilisateurs.
+ <a href="https://abdou.website/Cinephoria/Vues/index.php"> www.Cinéphoria.com </a>
+est une application web de gestion de cinéma développée en PHP avec une base de données MySQL. Elle permet aux visiteurs de réserver des séances de cinéma, aux utilisateurs de gérer leurs commandes, et aux administrateurs/employés de gérer les films, salles, séances et utilisateurs.
 
 ---
 
@@ -30,6 +30,8 @@ Cinéphoria est une application web de gestion de cinéma développée en PHP av
 - Accès via le bouton **Intranet** après connexion.
 
 ### 🧑‍💼 Espace Administrateur
+
+<a href="https://abdou.website/Cinephoria/Vues/Admin/index.php"> www.Admin-Cinéphoria.com </a>
 - Accès via le menu **Administration** après authentification.
 - Gestion complète des films, séances, salles.
 - Création de comptes employé.

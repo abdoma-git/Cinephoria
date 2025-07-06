@@ -4,7 +4,7 @@ class Employe {
     private $id;
     private $nom;
     private $prenom;
-    private $pdo;
+    private static $pdo;
     private $email;
     private $mot_de_passe;
 

@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html>
 
+<?php
+  require_once '../connexion.php';
+  require_once '../Modeles/Cinema.php';
+
+  // Récupération des cinémas depuis la base
+  $cinemas = [];
+  $stmt = $pdo->query("SELECT nom FROM cinemas");
+  if ($stmt) {
+      $cinemas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+?>
+
 <head>
   <!-- Basic -->
   <meta charset="utf-8" />
@@ -11,8 +24,8 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/fevicon.png" type="image/x-icon">
-  <title>Finter</title>
+  <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
+  <title>Contact</title>
 
   <!-- bootstrap core css -->
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />
@@ -57,43 +70,39 @@
             <div class="heading_container heading_center">
               <h2>Entrer en contact</h2>
             </div>
-            <form action="">
+            <form method="post">
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="text" class="form-control" placeholder="Votre nom" />
+                  <input type="text" name="nom" class="form-control" placeholder="Votre nom" required />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col-lg-6">
-                  <input type="text" class="form-control" placeholder="Votre téléphone" />
+                  <input type="text" name="telephone" class="form-control" placeholder="Votre téléphone" required />
                 </div>
                 <div class="form-group col-lg-6">
-                  <select name="" id="" class="form-control wide">
+                  <select name="cinema" class="form-control wide" required>
                     <option value="">Choisir le cinéma</option>
-                    <option value="">Paris</option>
-                    <option value=""> Bordeaux</option>
-                    <option value="">Toulouse</option>
-                    <option value="">Lile</option>
-                    <option value="">Nantes</option>
-                    <option value="">Charleroi</option>
-                    <option value="">Liège</option>
+                    <?php foreach ($cinemas as $cinema): ?>
+                      <option value="<?= htmlspecialchars($cinema['nom']) ?>">
+                        <?= htmlspecialchars($cinema['nom']) ?>
+                      </option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="email" class="form-control" placeholder="Email" />
+                  <input type="email" name="email" class="form-control" placeholder="Email" required />
                 </div>
               </div>
               <div class="form-row">
                 <div class="form-group col">
-                  <input type="text" class="message-box form-control" placeholder="Message" />
+                  <input type="text" name="message" class="message-box form-control" placeholder="Message" required />
                 </div>
               </div>
               <div class="btn_box">
-                <button>
-                  Envoyer la demande
-                </button>
+                <button type="submit" name="submit">Envoyer la demande</button>
               </div>
             </form>
           </div>
@@ -102,6 +111,33 @@
     </div>
   </section>
   <!-- end contact section -->
+
+  <?php
+    // Traitement du formulaire
+    if (isset($_POST['submit'])) {
+        // Sécurisation des entrées
+        $nom = $_POST['nom'];
+        $telephone = $_POST['telephone'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $cinema_nom = $_POST['cinema'];
+
+        // Insertion directe du nom du cinéma dans la table contact
+        $stmtInsert = $pdo->prepare("
+            INSERT INTO contact (Nom, Tel, Email, Message, Cinema) 
+            VALUES (:nom, :telephone, :email, :message, :cinema_nom)
+        ");
+        $stmtInsert->execute([
+            'nom' => $nom,
+            'telephone' => $telephone,
+            'email' => $email,
+            'message' => $message,
+            'cinema_nom' => $cinema_nom
+        ]);
+
+        echo "<p style='color:green'>Votre demande a bien été enregistrée.</p>";
+    }
+?>
 
   <!-- info section -->
   <section class="info_section ">

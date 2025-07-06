@@ -12,7 +12,7 @@
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/fevicon.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
   <title>Finter</title>
 
   <!-- bootstrap core css -->

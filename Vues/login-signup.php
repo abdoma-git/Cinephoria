@@ -8,6 +8,7 @@
 	<title>Slide Navbar</title>
 	<link rel="stylesheet" type="text/css" href="../css/login-signup.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="../images/logo.png" type="image/x-icon">
 </head>
 <body>
 	<div class="main">  	

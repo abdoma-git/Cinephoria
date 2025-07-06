@@ -4,9 +4,6 @@ require_once '../../Modeles/Seance.php';
 require_once '../../Modeles/Film.php';
 require_once '../../Modeles/Salle.php';
 
-// Initialisation de la connexion PDO pour les classes
-Film::setPdo($pdo);
-Salle::setPdo($pdo);
 
 // Récupération des séances du jour
 $seance = new Seance($pdo);
@@ -132,11 +129,9 @@ function formatHeure($heure) {
                             <p class="card-text">
                                 <i class="bi bi-clock"></i> <?php echo formatHeure($seance['heure_debut']); ?> - <?php echo formatHeure($seance['heure_fin']); ?><br>
                                 <i class="bi bi-geo-alt"></i> Salle <?php echo $salle['id']; ?><br>
-                                <i class="bi bi-ticket-perforated"></i> <?php echo $seance['qualité']; ?>
+                                <i class="bi bi-ticket-perforated"></i> <?php echo $seance['qualite']; ?>
                             </p>
-                            <a href="reservation.php?id=<?php echo $seance['id']; ?>" class="btn btn-primary">
-                                <i class="bi bi-plus-circle"></i> Nouvelle réservation
-                            </a>
+                           
                         </div>
                     </div>
                 </div>
