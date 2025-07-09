@@ -4,6 +4,51 @@ est une application web de gestion de cinéma développée en PHP avec une base 
 
 ---
 
+# Lancer une Application PHP en Local avec WAMP
+
+Ce guide explique comment configurer et exécuter une application PHP localement en utilisant wamp, `www`, PhpMyAdmin et Visual Studio Code.
+
+## Prérequis
+
+- [wamp](https://www.wamp.info/en/downloads/)
+- [Visual Studio Code](https://code.visualstudio.com/Download)
+- Navigateur web (comme Chrome, Firefox, etc.)
+
+## Étapes pour Lancer l'Application
+
+### 1. Installation de wamp
+
+1. Téléchargez et installez [wamp](https://www.wamp.info/en/downloads/) sur votre machine.
+2. Une fois installé, lancez wamp.
+3. Assurez-vous que le serveur Apache et MySQL sont démarrés. Vous pouvez voir leur statut dans la fenêtre de wamp.
+
+### 2. Configuration de l'Environnement Local
+
+1. **Configurer le dossier `www` :**
+   - Placez votre projet PHP dans le répertoire `www` de wamp. Par défaut, ce répertoire se trouve ici :
+     - **macOS** : `/Applications/wamp/www/`
+     - **Windows** : `C:\wamp\www\`
+   - Par exemple, si votre projet s'appelle `bet-website`, placez-le dans le répertoire `www` de manière à ce qu'il soit accessible via : `C:\wamp\www\bet-website`.
+
+2. **Configuration de la base de données avec PhpMyAdmin :**
+   - Accédez à [http://localhost/phpmyadmin](http://localhost/phpmyadmin) dans votre navigateur pour ouvrir PhpMyAdmin.
+   - Créez une nouvelle base de données pour votre projet.
+   - Importez le fichier SQL (le cas échéant) dans cette base de données pour initialiser les tables.
+   - Le lien vers le fichier sql de la basee de donees : <a href="https://github.com/abdoma-git/Cinephoria/blob/master/cinephoria.sql">Cinephoria.sql</a>
+
+### 3. Édition et Configuration du Code avec Visual Studio Code
+
+1. Ouvrez Visual Studio Code.
+2. Cliquez sur "File" > "Open Folder..." et sélectionnez le répertoire de votre projet dans `www`.
+3. Vérifiez le fichier de configuration de la base de données (souvent `config.php` ou `database.php`) pour vous assurer que les paramètres de connexion à la base de données sont corrects :
+   ```php
+   <?php
+   $host = 'localhost';
+   $dbname = 'cinphoria';
+   $username = 'root';
+   $password = ''; // Ou vide selon la configuration par défaut de wamp
+   ?>
+
 ## 🧩 Fonctionnalités principales
 
 ### 🌐 Côté Visiteur (non connecté)
@@ -69,6 +114,6 @@ est une application web de gestion de cinéma développée en PHP avec une base 
 ## 📬 Contact
 
 Développé par **Abdoma**  
-📧 Email : abdoma.dev@gmail.com  
+📧 Email : abdou.mohamed7949@yahoo.fr  
 🔗 GitHub : [github.com/abdoma-git](https://github.com/abdoma-git)
 
