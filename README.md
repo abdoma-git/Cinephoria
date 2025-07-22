@@ -2,6 +2,26 @@
  <a href="https://abdou.website/Cinephoria/Vues/index.php"> www.Cinéphoria.com </a>
 est une application web de gestion de cinéma développée en PHP avec une base de données MySQL. Elle permet aux visiteurs de réserver des séances de cinéma, aux utilisateurs de gérer leurs commandes, et aux administrateurs/employés de gérer les films, salles, séances et utilisateurs.
 
+# Documents A rendres
+
+- Le Rapport ECF Cinephoria des 3 Applications (Web, Mobile Desktop) --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Rapport_ECF_Cinephoria_MOHAMED_Abdou.pdf"> Rapport ECF </a>
+
+- Le Charte Graphique du site --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Chartes-graphique-cinephoria.pdf"> Charte Graphique </a>
+
+- Maquettes --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/maquettes Cinephoria.pdf"> Maquettes + Palette </a>
+
+- Le fichier SQL des transactions sql --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/cinephoria.sql"> Transactions sql </a>
+
+- Documentation --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documentation.pdf"> Documentation </a>
+
+- Les identifiants pour tester l'application --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Les identifiants de Cinephoria.pdf"> Identifiants </a>
+
+- Gestion de Projet --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Gestion_Projet.pdf"> Gestion de Projet </a>
+
+- Statistique + MongoDB --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/STATISTIQUES.pdf"> Statistiques </a>
+
+- Configuration --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Configurations.pdf"> Configuration </a>
+
 ---
 
 # Lancer une Application PHP en Local avec WAMP
