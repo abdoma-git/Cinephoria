@@ -16,7 +16,7 @@ est une application web de gestion de cinéma développée en PHP avec une base 
 
 - Les identifiants pour tester l'application --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Les identifiants de Cinephoria.pdf"> Identifiants </a>
 
-- Gestion de Projet --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Gestion_Projet.pdf"> Gestion de Projet </a>
+- Gestion de Projet --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Gestion_projet.pdf"> Gestion de Projet </a>
 
 - Statistique + MongoDB --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/STATISTIQUES.pdf"> Statistiques </a>
 
