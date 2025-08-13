@@ -6,21 +6,21 @@ est une application web de gestion de cinéma développée en PHP avec une base 
 
 - Le Rapport ECF Cinephoria des 3 Applications (Web, Mobile Desktop) --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Rapport_ECF_Cinephoria_MOHAMED_Abdou.pdf"> Rapport ECF </a>
 
-- Le Charte Graphique du site --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Chartes-graphique-cinephoria.pdf"> Charte Graphique </a>
+- Le Charte Graphique du site --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/Chartes-graphique-cinephoria.pdf"> Charte Graphique </a>
 
-- Maquettes --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/maquettes Cinephoria.pdf"> Maquettes + Palette </a>
+- Maquettes --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/maquettes Cinephoria.pdf"> Maquettes + Palette </a>
 
-- Le fichier SQL des transactions sql --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/cinephoria.sql"> Transactions sql </a>
+- Le fichier SQL des transactions sql --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/cinephoria.sql"> Transactions sql </a>
 
-- Documentation --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documentation.pdf"> Documentation </a>
+- Documentation --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/Documentation.pdf"> Documentation </a>
 
-- Les identifiants pour tester l'application --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Les identifiants de Cinephoria.pdf"> Identifiants </a>
+- Les identifiants pour tester l'application --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/Les identifiants de Cinephoria.pdf"> Identifiants </a>
 
-- Gestion de Projet --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Gestion_projet.pdf"> Gestion de Projet </a>
+- Gestion de Projet --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/Gestion_projet.pdf"> Gestion de Projet </a>
 
-- Statistique + MongoDB --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/STATISTIQUES.pdf"> Statistiques </a>
+- Statistique + MongoDB --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/STATISTIQUES.pdf"> Statistiques </a>
 
-- Configuration --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Configurations.pdf"> Configuration </a>
+- Configuration --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Documents_A_Rendre/Configurations.pdf"> Configuration </a>
 
 ---
 
@@ -78,8 +78,8 @@ Ce guide explique comment configurer et exécuter une application PHP localement
 - Films : affichage + filtres (cinéma, genre, jour), note moyenne, « coup de cœur ».
 - Création de compte avec mot de passe sécurisé + mail de confirmation.
 
-<img src="web1.png">
-<img src="web2.png">
+<img src="Cinephoria_php/images/web1.png">
+<img src="Cinephoria_php/images/web2.png">
 
 
 ### 🔐 Côté Utilisateur
@@ -87,7 +87,7 @@ Ce guide explique comment configurer et exécuter une application PHP localement
 - Mon espace : voir ses réservations, noter un film après séance expirée.
 - Note (sur 5) et description visibles sur la page du film.
 
-<img src="web3.png">
+<img src="Cinephoria_php/images/web3.png">
 
 ### 🛠️ Espace Employé
 
@@ -106,9 +106,9 @@ Ce guide explique comment configurer et exécuter une application PHP localement
 - Réinitialisation de mot de passe employé.
 - Dashboard (statistiques sur 7 jours depuis une base NoSQL).
 
-<img src="admin1.png">
-<img src="admin2.png">
-<img src="admin3.png">
+<img src="Cinephoria_php/images/admin1.png">
+<img src="Cinephoria_php/images/admin2.png">
+<img src="Cinephoria_php/images/admin3.png">
 
 ---
 
