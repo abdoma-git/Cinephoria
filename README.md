@@ -2,6 +2,14 @@
  <a href="https://abdou.website/Cinephoria/Vues/index.php"> www.Cinéphoria.com </a>
 est une application web de gestion de cinéma développée en PHP avec une base de données MySQL. Elle permet aux visiteurs de réserver des séances de cinéma, aux utilisateurs de gérer leurs commandes, et aux administrateurs/employés de gérer les films, salles, séances et utilisateurs.
 
+### Docker
+
+🚀 L’application est entièrement conteneurisée grâce à **Docker**, ce qui facilite le déploiement, l’isolation des services (Apache, PHP, Base de données) et assure une reproductibilité de l’environnement sur toutes les machines.
+
+<img src="Cinephoria_php/images/architecture_docker.png">
+
+
+
 # Documents A rendres
 
 - Le Rapport ECF Cinephoria des 3 Applications (Web, Mobile Desktop) --> <a href="https://github.com/abdoma-git/Cinephoria/blob/master/Rapport_ECF_Cinephoria_MOHAMED_Abdou.pdf"> Rapport ECF </a>
