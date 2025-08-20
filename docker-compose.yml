@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: cinephoria_app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Cinephoria_php:/var/www/html
+    restart: always
