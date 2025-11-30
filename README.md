@@ -1,5 +1,5 @@
 # 🎬 Cinéphoria – Application Web
- <a href="https://abdou.website/Cinephoria/Vues/index.php"> www.Cinéphoria.com </a>
+ <a href="https://abdou.website/Cinephoria/Vues/"> www.Cinéphoria.com </a>
 est une application web de gestion de cinéma développée en PHP avec une base de données MySQL. Elle permet aux visiteurs de réserver des séances de cinéma, aux utilisateurs de gérer leurs commandes, et aux administrateurs/employés de gérer les films, salles, séances et utilisateurs.
 
 ### Docker
